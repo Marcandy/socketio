@@ -47,7 +47,7 @@
                     <div class="chat-message" ng-repeat="message in messages">
                         <p>
                             <strong>{{message.user}}: </strong>
-                            {{message.message}}
+                            {{message.msg}}
                         </p>
                     </div>
                 </div>
@@ -55,6 +55,9 @@
           </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+        <script src="../socket.io/socket.io.js"></script>
         <script src="./app.js"></script>
+
+
     </body>
 </html>
