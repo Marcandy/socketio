@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="socketApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Socket Play</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css" media="screen" title="no title">
+    </head>
+    <body ng-controller="mainCtrl">
+        <div class="container">
+          <div class="row" ng-show="showLogin">
+            <div class="col-md-12">
+              <form>
+                <div class="form-group">
+                  <label>Enter User Name</label>
+                  <input class="form-control" ng-model="username">
+                  <br/>
+                  <input type="submit" class="btn btn-primary" value="login" ng-click="newUser(username)">
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="row" ng-hide="showLogin">
+
+            <div class="col-md-3">
+
+              <div class="form-group">
+                  <h4>Enter Message</h4>
+                  <textarea class="enter-user" ng-model="message"></textarea>
+                  <br/>
+                  <input type="submit" class="btn btn-primary" ng-click="sendMessage(message)">
+              </div>
+
+              <div class="well">
+                <h3><em>Online Users</em></h3>
+                <ul class="list-group" ng-repeat="user in users">
+                    <li><h3>{{user}}</h3></li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="col-md-1"></div>
+            <div class="col-md-8">
+                <div class="chat well">
+                    <div class="chat-message" ng-repeat="message in messages">
+                        <p>
+                            <strong>{{message.user}}: </strong>
+                            {{message.message}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+        <script src="./app.js"></script>
+    </body>
+</html>
